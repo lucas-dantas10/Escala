@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'app.apps.AppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,9 +76,17 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'church',
+        'USER': 'root',
+        'PASSWORD': '#Lucas10122003',
+        'HOST': 'localhost',   # ou o endereço do seu servidor MySQL
+        'PORT': '3306',        # porta padrão do MySQL
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 
