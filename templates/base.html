@@ -10,6 +10,14 @@
 </head>
 <body>
     <div>
+        <p>
+        <a href="{% url 'index' %}">Escala</a>
+        {% if user.is_authenticated %}
+            Olá, {{user.username}}
+        {% else %}
+            <a href="{% url 'login' %}">Entrar</a>
+        {% endif %}
+        </p>
         {% block content %}{% endblock %}
     </div>
 </body>
