@@ -10,3 +10,7 @@ def index(request):
     # return HttpResponse(todas_escalas[1].id)
 
 # Create your views here.
+
+
+def teste(request):
+    return render(request, 'pages/teste.html')
