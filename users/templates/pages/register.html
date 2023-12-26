@@ -1,17 +1,4 @@
-{% load static tailwind_tags %}
- 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  {% tailwind_css %}
-
-</head>
-<body>
-  <div>
-
+{% extends "base_side_bar.html" %}
     {% block content %}
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -83,5 +70,3 @@
         <input type="hidden" name="next" value="{% url 'index' %}">
 {% endblock content %} {% endcomment %}
 </div>
-</body>
-</html>
