@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block head_title %}Escala Home{% endblock %}</title>
-    {% include 'head/css.html' %}
-</head>
-<body>
-        <h1 class="text-blue-700 text-2x">HELLO WORLD</h1>
-    </div>
+{% extends "base_side_bar.html" %}
 
-</body>
-</html>
+{% block content %}
+<div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-yellow-500">
+    <p class="text-5xl text-white dark:text-white">ESCALA</p>
+ </div>
+{% endblock %}

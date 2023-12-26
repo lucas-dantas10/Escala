@@ -1,16 +1,21 @@
-{% load static %}
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block head_title %}Escala Home{% endblock %}</title>
-    {% include 'head/css.html' %}
+    <title>Escala Home</title>
+    
+    {% tailwind_css %}
+
 </head>
 <body>
     <main>
-        {% block content %}{% endblock %}
+        <h1 class="text-5xl text-green-800">TESTE</h1>
+
+        {% block content %}
+        {% endblock %}
     </main>
 </body>
 </html>
