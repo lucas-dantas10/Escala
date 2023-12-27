@@ -1,5 +1,19 @@
 {% extends "base_side_bar.html" %}
     {% block content %}
+              {% if form.username.errors %}
+                  <div class="border rounded-md px-2 py-4 border-red-500 bg-red-500">
+                      <p class="text-white">Seu usuário é inválido. <br> Por favor tente novamente.(Evite espaços)
+                         </p>
+                  </div>
+              {% endif %} 
+
+              {% if form.errors %}
+                  <div class="border rounded-md px-2 py-4 border-red-500 bg-red-500">
+                      <p class="text-white">Senha inválida <br> Siga os seguintes requisitos: <br>Mínimo 4 caracteres 
+                      <br>Evitar senhas que são muito relacionadas aos seus dados pessoais
+                         </p>
+                  </div>
+              {% endif %} 
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Crie uma conta</h2>
@@ -12,14 +26,14 @@
             <div>
                 <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Nome</label>
                 <div class="mt-2">
-                  <input id="username" placeholder="nome" name="username" type="text" required class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <input id="username" placeholder="nome" name="username" type="text" required class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6">
                 </div>
               </div>
 
             {% comment %} <div>
               <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
               <div class="mt-2">
-                <input id="email" placeholder="email@example.com" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <input id="email" placeholder="email@example.com" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6">
               </div>
             </div> {% endcomment %}
       
@@ -28,7 +42,7 @@
                 <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Senha</label>
               </div>
               <div class="mt-2">
-                <input id="password" placeholder="********" name="password1" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <input id="password" placeholder="********" name="password1" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6">
               </div>
             </div>
 
@@ -37,12 +51,12 @@
                 <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Confirmar Senha</label>
               </div>
               <div class="mt-2">
-                <input id="password" placeholder="********" name="password2" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <input id="password" placeholder="********" name="password2" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6">
               </div>
             </div>
       
             <div>
-                <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <button type="submit" class="flex w-full justify-center rounded-md bg-yellow-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
                     Cadastrar
                 </button>
                 <input type="hidden" name="next" value="{% url 'index' %}">

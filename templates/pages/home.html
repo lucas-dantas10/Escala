@@ -1,5 +1,12 @@
-{% extends "base.html" %}
+{% extends "base_side_bar.html" %}
 
 {% block content %}
-    <h1 class="text-purple-700 text-2xl">HELLO WORLD</h1>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    <h1 class="text-purple-700 text-2xl">ESTE É O INDEX</h1>
 {% endblock %}
