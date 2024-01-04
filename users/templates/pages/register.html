@@ -1,14 +1,14 @@
 {% extends "base_side_bar.html" %}
     {% block content %}
               {% if form.username.errors %}
-                  <div class="border rounded-md px-2 py-4 border-red-500 bg-red-500">
+                  <div class="border rounded-md px-2 py-4 border-red-500 bg-red-500 mb-4">
                       <p class="text-white">Seu usuário é inválido. <br> Por favor tente novamente.(Evite espaços)
                          </p>
                   </div>
               {% endif %} 
 
               {% if form.errors %}
-                  <div class="border rounded-md px-2 py-4 border-red-500 bg-red-500">
+                  <div class="border rounded-md px-2 py-4 border-red-500 bg-red-500 mb-4">
                       <p class="text-white">Senha inválida <br> Siga os seguintes requisitos: <br>Mínimo 4 caracteres 
                       <br>Evitar senhas que são muito relacionadas aos seus dados pessoais
                          </p>
