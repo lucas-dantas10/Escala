@@ -7,7 +7,15 @@
         
 {% if user.is_authenticated %}
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <form method="get">
+            {{myFilter.form}}
+            <button type="submit">Filtrar</button>
+        </form>
+
         <h1 class="text-3xl text-center">Data dd/mm/aa H:x</h1>
+        
+
+        
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-white uppercase">
                 <tr>
@@ -26,62 +34,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="border-b border-gray-200 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-200">
-                        Apple MacBook Pro 17"
-                    </th>
-                    <td class="px-6 py-4 text-gray-900">
-                        Silver
-                    </td>
-                    <td class="px-6 py-4 bg-gray-20 text-gray-900 whitespace-nowrap bg-gray-200">
-                        Laptop
-                    </td>
-                    <td class="px-6 py-4 text-gray-900">
-                        $2999
-                    </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-200">
-                        Microsoft Surface Pro
-                    </th>
-                    <td class="px-6 py-4 text-gray-900">
-                        White
-                    </td>
-                    <td class="px-6 py-4 text-gray-900 whitespace-nowrap bg-gray-200">
-                        Laptop PC
-                    </td>
-                    <td class="px-6 py-4 text-gray-900">
-                        $1999
-                    </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-200">
-                        Magic Mouse 2
-                    </th>
-                    <td class="px-6 py-4 text-gray-900">
-                        Black
-                    </td>
-                    <td class="px-6 py-4 text-gray-900 whitespace-nowrap bg-gray-200">
-                        Accessories
-                    </td>
-                    <td class="px-6 py-4 text-gray-900">
-                        $99
-                    </td>
-                </tr>
-                <tr class="border-b border-gray-200 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-200">
-                        Google Pixel Phone
-                    </th>
-                    <td class="px-6 py-4 text-gray-900">
-                        Gray
-                    </td>
-                    <td class="px-6 py-4 text-gray-900 whitespace-nowrap bg-gray-200">
-                        Phone
-                    </td>
-                    <td class="px-6 py-4 text-gray-900">
-                        $799
-                    </td>
-                </tr>
+                {% for user in usuarios %}
+                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-200">
+                            {{user.username}}
+                        </th>
+                        <td class="px-6 py-4 text-gray-900">
+                            Silver
+                        </td>
+                        <td class="px-6 py-4 bg-gray-20 text-gray-900 whitespace-nowrap bg-gray-200">
+                            Laptop
+                        </td>
+                        <td class="px-6 py-4 text-gray-900">
+                            $2999
+                        </td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
@@ -109,5 +77,6 @@
                 </svg>
             </a>
         </div>
+
 {% endif %}
 {% endblock %}
