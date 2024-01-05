@@ -1,9 +1,9 @@
 {% extends "base_side_bar.html" %}
 
 {% block content %}
-    {% comment %} {% for user in usernames %}
-    <p>{{user.username}}</p>
-        {% endfor %} {% endcomment %}
+    {% comment %} {% for user in usuarios %}
+        <p>{{user.username}}</p>
+    {% endfor %}  {% endcomment %}
         
 {% if user.is_authenticated %}
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">

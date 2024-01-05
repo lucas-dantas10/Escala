@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 
 def index(request):
-    usernames = User.objects.all()
-    return render(request, "pages/home.html", {"usernames": usernames})
+    usuarios = User.objects.all()
+    return render(request, "pages/home.html", {"usuarios": usuarios})
 
     # todas_escalas = Escala.objects.all()
     # return HttpResponse(todas_escalas[1].id)
