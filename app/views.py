@@ -8,7 +8,7 @@ from .filters import OrderFilter
 def index(request):
     usuarios = User.objects.all()
 
-    myFilter = OrderFilter()
+    myFilter = OrderFilter(request.GET)
     context = {"usuarios": usuarios, "myFilter": myFilter}
     return render(request, "pages/home.html", context)
 
