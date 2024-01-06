@@ -1,18 +1,29 @@
 {% extends "base_side_bar.html" %}
     {% block content %}
               {% if form.username.errors %}
-                  <div class="border rounded-md px-2 py-4 border-red-500 bg-red-500 mb-4">
-                      <p class="text-white">Seu usuário é inválido. <br> Por favor tente novamente.(Evite espaços)
-                         </p>
-                  </div>
+              <div class="flex items-center p-4 mb-4 text-sm text-yellow-800 border border-yellow-700 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-600 dark:border-yellow-800" role="alert">
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                </svg>
+                <span class="sr-only">Info</span>
+                <div>
+                  <span class="font-medium">Alerta!</span> Seu usuário é inválido. <br> Por favor tente novamente.(Evite espaços)
+                </div>
+              </div>
               {% endif %} 
 
               {% if form.errors %}
-                  <div class="border rounded-md px-2 py-4 border-red-500 bg-red-500 mb-4">
-                      <p class="text-white">Senha inválida <br> Siga os seguintes requisitos: <br>Mínimo 4 caracteres 
-                      <br>Evitar senhas que são muito relacionadas aos seus dados pessoais
-                         </p>
-                  </div>
+              <div class="flex items-center p-4 mb-4 text-sm text-yellow-800 border border-yellow-700 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-600 dark:border-yellow-800" role="alert">
+                <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                </svg>
+                <span class="sr-only">Info</span>
+                <div>
+                  <span class="font-medium"><p>Alerta!</span> Senha inválida! <br> Siga os seguintes requisitos: <br>Mínimo 4 caracteres 
+                    <br>Evitar senhas que são muito relacionadas aos seus dados pessoais
+                       </p>
+                </div>
+              </div>
               {% endif %} 
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">

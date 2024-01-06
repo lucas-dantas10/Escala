@@ -6,13 +6,19 @@
     {% endfor %}  {% endcomment %}
         
 {% if user.is_authenticated %}
+<h1 class="text-3xl text-center">Data dd/mm/aa H:x</h1>
+<div bis_skin_checked="1" class="mb-7">
+    <form method="get">
+        <input type="text" name="username" id="id_username" wfd-id="id0" class="inline w-500 rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6" placeholder="Filtre pelo nome"> 
+        <button type="submit" class="inline w-100 rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6 bg-yellow-600">Filtrar</button>
+    </div> 
+    
+</form> 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <form method="get">
+         {% comment %} <form method="get">
             {{myFilter.form}}
             <input type="submit" />
-        </form>
-        <h1 class="text-3xl text-center">Data dd/mm/aa H:x</h1>
-        
+        </form>  {% endcomment %}        
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-white uppercase">
                 <tr>
