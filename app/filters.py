@@ -1,5 +1,6 @@
 import django_filters
 from django.contrib.auth.models import User
+# from app.models import Participacao
 
 
 class OrderFilter(django_filters.FilterSet):
