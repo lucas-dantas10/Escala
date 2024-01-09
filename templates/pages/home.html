@@ -1,5 +1,85 @@
-{% extends "base.html" %}
+{% extends "base_side_bar.html" %}
 
 {% block content %}
-    <h1 class="text-purple-700 text-2xl">HELLO WORLD</h1>
+    {% comment %} {% for user in usuarios %}
+        <p>{{user.username}}</p>
+    {% endfor %}  {% endcomment %}
+        
+{% if user.is_authenticated %}
+<h1 class="text-3xl text-center">Data dd/mm/aa H:x</h1>
+<div bis_skin_checked="1" class="mb-7">
+    <form method="get">
+        <input type="text" name="username" id="id_username" wfd-id="id0" class="inline w-500 rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6" placeholder="Filtre pelo nome"> 
+        <button type="submit" class="inline w-100 rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6 bg-yellow-600">Filtrar</button>
+    </div> 
+    
+</form> 
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+         {% comment %} <form method="get">
+            {{myFilter.form}}
+            <input type="submit" />
+        </form>  {% endcomment %}        
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-white uppercase">
+                <tr>
+                    <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-yellow-600">
+                        Ministros
+                    </th>
+                    <th scope="col" class="px-6 py-3 dark:bg-yellow-600">
+                        Color
+                    </th>
+                    <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-yellow-600">
+                        Category
+                    </th>
+                    <th scope="col" class="px-6 py-3 dark:bg-yellow-600">
+                        Price
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in myFilter.qs %}
+                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-200">
+                            {{user.username}}
+                        </th>
+                        <td class="px-6 py-4 text-gray-900">
+                            Silver
+                        </td>
+                        <td class="px-6 py-4 bg-gray-20 text-gray-900 whitespace-nowrap bg-gray-200">
+                            Laptop
+                        </td>
+                        <td class="px-6 py-4 text-gray-900">
+                            $2999
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if request.user.is_staff %}
+        <a href="#" class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-yellow-600 hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-700 mt-5">
+        Editar Escala
+        </a>
+    {% endif %}
+{% else %}
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+        <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8 ">
+            
+            <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">Seja bem Vindo</h1>
+            <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">Para visualizar suas escalas efetue o seu login ou cadastre-se nos links abaixo</p>
+            <a href="{% url "login" %}" class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-yellow-700 hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-700 mr-8">
+                Entrar
+                <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a>
+            <a href="{% url "register" %}" class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-yellow-700 hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-700"    >
+                Cadastre-se
+                <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a>
+        </div>
+
+{% endif %}
 {% endblock %}
