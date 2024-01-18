@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.timezone import datetime
 
 # Create your models here.
 class Escala(models.Model):
@@ -10,16 +11,18 @@ class Escala(models.Model):
         db_table = 'tb_escala'
 
 class Missa(models.Model):
-    escala_id = models.ForeignKey(Escala, on_delete=models.CASCADE)
+    escala = models.ForeignKey(Escala, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(default=datetime.now)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'tb_missa'
 
 class Participacao(models.Model):
-    ministro_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    missa_id = models.ForeignKey(Missa, on_delete=models.CASCADE),
-    created_at = models.DateTimeField(auto_now_add=True),
-    updated_at = models.DateTimeField(auto_now=True),
+    ministro = models.ForeignKey(User, on_delete=models.CASCADE)
+    missa = models.ForeignKey(Missa, on_delete=models.CASCADE, default=None)
+    created_at = models.DateTimeField(default=datetime.now)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
             db_table = 'tb_participacao'
