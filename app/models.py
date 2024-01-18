@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils.timezone import datetime
+from django.utils import timezone
 
 # Create your models here.
 class Escala(models.Model):
@@ -12,7 +12,7 @@ class Escala(models.Model):
 
 class Missa(models.Model):
     escala = models.ForeignKey(Escala, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(default=datetime.now)
+    created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
@@ -21,7 +21,7 @@ class Missa(models.Model):
 class Participacao(models.Model):
     ministro = models.ForeignKey(User, on_delete=models.CASCADE)
     missa = models.ForeignKey(Missa, on_delete=models.CASCADE, default=None)
-    created_at = models.DateTimeField(default=datetime.now)
+    created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
