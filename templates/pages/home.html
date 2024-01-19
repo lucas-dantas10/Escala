@@ -8,22 +8,25 @@
     }
 </script>
 <form method="get">
-    <p>
-        <label for="id_username">Ministro Username:</label>
-        <input type="text" name="username" id="id_username" wfd-id="id0">
-    </p>
-    <p>
-        <label for="id_missa">Missa:</label>
-        <select name="missa" id="id_missa">
-            <option value="">---------</option>
+    <p class="mb-3">
+        {% comment %} <label for="id_username" >Ministro Username:</label> {% endcomment %}
+        <input type="text" name="username" id="id_username" wfd-id="id0" class="inline w-1000 h-12 rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-black focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6" placeholder="Filtre pelo nome">
+    
+        {% comment %} <label for="id_missa">Missa:</label> {% endcomment %}
+        <select name="missa" id="id_missa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg inline w-1000 p-2.5 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6 h-12">
+            <option value="">Filtre pela data</option>
           
-            <option value="1" selected="">Domingo 07:00:00</option>
+            <option value="1">Domingo 07:00:00</option>
           
             <option value="2">Domingo 09:00:00</option>
+
+            <option value="3">Domingo 19:00:00</option>
           
           </select>
+          <button type="submit" class="inline w-40 h-12 rounded-md border-0 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-yellow-400 sm:text-sm sm:leading-6 bg-yellow-600 ml-3">Filtrar</button>
     </p>
-    <button type="submit">Filtrar</button>
+    
+    <button type="button" onclick="limparFiltros()" class="inline w-100 rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6 bg-gray-300">Limpar Filtros</button>  
 </form>
         
 {% if user.is_authenticated %}

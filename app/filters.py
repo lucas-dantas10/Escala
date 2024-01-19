@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class OrderFilter(django_filters.FilterSet):
     username = django_filters.CharFilter(
         field_name='ministro__username',
-        lookup_expr='exact'
+        lookup_expr='istartswith'
         )
 
     class Meta:
