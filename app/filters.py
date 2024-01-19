@@ -1,13 +1,15 @@
 import django_filters
+from .models import Participacao
 from django.contrib.auth.models import User
 # from app.models import Participacao
 
 
 class OrderFilter(django_filters.FilterSet):
     username = django_filters.CharFilter(
-        lookup_expr='startswith', label="Usuário"
+        field_name='ministro__username',
+        lookup_expr='exact'
         )
 
     class Meta:
-        model = User
-        fields = ['username']
+        model = Participacao
+        fields = ['username', 'missa']

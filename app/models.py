@@ -33,7 +33,7 @@ class Participacao(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-            db_table = 'tb_participacao'
+        db_table = 'tb_participacao'
             
     def __str__(self) -> str:
         return f'{self.ministro} {self.missa}'

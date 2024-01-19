@@ -7,29 +7,35 @@
         window.location.href = window.location.pathname;
     }
 </script>
-    {% comment %} {% for user in usuarios %}
-        <p>{{user.username}}</p>
-    {% endfor %}  {% endcomment %}
+<form method="get">
+    <p>
+        <label for="id_username">Ministro Username:</label>
+        <input type="text" name="username" id="id_username" wfd-id="id0">
+    </p>
+    <p>
+        <label for="id_missa">Missa:</label>
+        <select name="missa" id="id_missa">
+            <option value="">---------</option>
+          
+            <option value="1" selected="">Domingo 07:00:00</option>
+          
+            <option value="2">Domingo 09:00:00</option>
+          
+          </select>
+    </p>
+    <button type="submit">Filtrar</button>
+</form>
         
 {% if user.is_authenticated %}
 <h1 class="text-3xl text-center">Data dd/mm/aa H:x</h1>
 <div bis_skin_checked="1" class="mb-7">
-    <form method="get">
-        <input type="text" name="username" id="id_username" wfd-id="id0" class="inline w-500 rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6" placeholder="Filtre pelo nome"> 
-        <button type="submit" class="inline w-100 rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6 bg-yellow-600">Filtrar</button>
-        <button type="button" onclick="limparFiltros()" class="inline w-100 rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6 bg-yellow-600">Limpar Filtros</button>        
-
-        <input type="date" id="data" class="border rounded py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline-blue focus:border-yellow-300">
-
-
-
-    </div> 
-</form> 
+    
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-         {% comment %} <form method="get">
-            {{myFilter.form}}
-            <input type="submit" />
-        </form>  {% endcomment %}        
+        {% comment %} <form method="get">
+            {{myFilter.form.as_p}}
+            <button type="submit">Filtrar</button>
+
+        </form>         {% endcomment %}
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-white uppercase">
                 <tr>
@@ -51,13 +57,13 @@
                 {% for user in myFilter.qs %}
                     <tr class="border-b border-gray-200 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-200">
-                            {{user.username}}
+                            {{user.ministro.username}}
                         </th>
                         <td class="px-6 py-4 text-gray-900">
-                            Silver
+                            {{user.ministro.id}}
                         </td>
                         <td class="px-6 py-4 bg-gray-20 text-gray-900 whitespace-nowrap bg-gray-200">
-                            Laptop
+                            {{user.missa.escala}}
                         </td>
                         <td class="px-6 py-4 text-gray-900">
                             $2999
