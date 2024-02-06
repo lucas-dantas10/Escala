@@ -1,6 +1,9 @@
 {% extends "base_side_bar.html" %}
 
 {% block content %}
+
+        
+{% if user.is_authenticated %}
 <script>
     function limparFiltros() {
         // Redirecionar para a mesma página sem os parâmetros de consulta
@@ -28,8 +31,6 @@
     
     <button type="button" onclick="limparFiltros()" class="inline w-100 rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-yellow-400 sm:text-sm sm:leading-6 bg-gray-300">Limpar Filtros</button>  
 </form>
-        
-{% if user.is_authenticated %}
 <h1 class="text-3xl text-center">Data dd/mm/aa H:x</h1>
 <div bis_skin_checked="1" class="mb-7">
     
@@ -51,9 +52,11 @@
                     <th scope="col" class="px-6 py-3 bg-gray-50 dark:bg-yellow-600">
                         Category
                     </th>
-                    <th scope="col" class="px-6 py-3 dark:bg-yellow-600">
-                        Price
-                    </th>
+                    {% if request.user.is_staff %}
+                        <th scope="col" class="px-6 py-3 dark:bg-yellow-600">
+                            Ação
+                        </th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -68,19 +71,20 @@
                         <td class="px-6 py-4 bg-gray-20 text-gray-900 whitespace-nowrap bg-gray-200">
                             {{user.missa.escala}}
                         </td>
-                        <td class="px-6 py-4 text-gray-900">
-                            $2999
-                        </td>
+                        {% if request.user.is_staff %}
+                            <td class="px-6 py-4 text-gray-900">
+                                <a href="#" class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-yellow-600 hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-700 mt-5">
+                                    Editar Escala
+                                    </a>
+                            </td>
+                        {% endif %}
+
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-    {% if request.user.is_staff %}
-        <a href="#" class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-yellow-600 hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-700 mt-5">
-        Editar Escala
-        </a>
-    {% endif %}
+        
 {% else %}
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
         <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8 ">
