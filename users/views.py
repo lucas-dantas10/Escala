@@ -3,6 +3,9 @@ from django.urls import reverse
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
+from django.views.generic import UpdateView
+from app.models import Participacao
+from django.urls import reverse_lazy
 
 
 def logout_view(request):
@@ -29,3 +32,8 @@ def register(request):
     return render(request, 'pages/register.html', context)
 
     
+class MinistroUpdateView(UpdateView):
+    # Edita o form
+    model = Participacao
+    fields = ["ministro", "missa"]
+    success_url = reverse_lazy("home")
