@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Participacao
 from .filters import OrderFilter
+from django.urls import reverse_lazy
+
 
 
 def index(request):
@@ -24,3 +26,5 @@ def index(request):
 
 def teste(request):
     return render(request, 'pages/teste.html')
+
+
